@@ -1,0 +1,201 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #005179;
+    background-image: linear-gradient(#a1d0e7,#6cbbe2);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+svg {
+    position: fixed;
+    z-index: -5;
+}
+@keyframes showUp {
+    0% {
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes vanish {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+main {
+    display: grid;
+    
+}
+
+header {
+    min-height: 150px;
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns:  10vw 30vw 10vw 30vw 10vw;
+    grid-template-rows: 80px 40px;
+    grid-template-areas: 
+        ". title title title ."
+        ". search search search ."
+    ;
+}
+
+h1 {
+    grid-area: title;
+    align-self: center;
+    justify-self: center;
+    color: white;
+    text-shadow: 0 0 40px black;
+}
+
+#search {
+    grid-area: search;
+    border-radius:  10px;
+    border: none;
+    padding-left: 1em;
+    font-size: 1.2rem;
+}
+
+.my-api { 
+    display: grid;
+    height: 200px;
+    width: 90%;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, calc(100% / 3));
+    grid-template-rows: 3rem 1rem 4rem 3rem;
+    grid-template-areas: 
+        "name name name"
+        ". . ."
+        "description description description"
+        "auth . https";
+    margin-bottom: 1em;
+    border-radius: 20px;
+    padding: .5em;   
+
+    background: rgba( 0, 87, 130, 0.55 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    /* animation-name: showUp; 
+    animation-duration: 1s; */
+}
+
+.my-api:first-child {
+    margin-top: 1em;
+}
+
+.my-api-name { 
+    grid-area: name; 
+    align-self: center; 
+    text-align: center; 
+    font-size: 1.2rem;
+    transition: all .5s;
+
+}
+
+a {
+    transition: all .5s;
+}
+.my-api-name a:link,
+.my-api-name a:visited {
+    text-decoration: none;
+    color: darkred;
+    font-weight: bold;
+}
+.my-api-name:hover a {
+    transform: scale(1.2);
+    display: block;
+}
+
+.my-api-name:hover {
+    border-bottom: 5px solid;
+    border-image: linear-gradient(to right, transparent 10%, darkred 50%, transparent) 1;
+    
+}
+
+.my-api-description {
+    grid-area: description; 
+    align-self: center; 
+    text-align: center; 
+    font-size: .9rem;
+}
+
+.my-api-auth {
+    grid-area: auth; 
+    align-self: center; 
+    text-align: center; 
+    font-size: .9rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px;
+    padding: .5em;
+}
+.my-api-https {
+    grid-area: https; 
+    align-self: center; 
+    text-align: center; 
+    font-size: .9rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px;
+    padding: .5em;
+}
+
+.supported {
+    background: rgba( 65, 117, 5, 0.55 ); 
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.not-supported {
+    background: rgba( 208, 2, 27, 0.55 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.accent-bold {
+    font-weight: bold;
+}
+
+@media (min-width:675px) {
+    main {
+        grid-template-columns: repeat(auto-fit, 450px);
+        align-items: center;
+        justify-content: center;
+        width: 95%;
+        margin: 0 auto;
+        /* padding-left: 4em; */
+    }
+
+    .my-api {
+        margin: 1em;
+    }
+
+    .my-api-name:hover a {
+        transform: scale(1.1);
+        display: block;
+    }
+
+}
